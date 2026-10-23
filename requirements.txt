@@ -1,0 +1,12 @@
+# 运行要求
+#
+# 服务端与客户端均只使用 Python 标准库, 无需安装任何第三方依赖。
+# 请确保 Python 版本不低于 3.8。
+#
+#   python --version
+#
+# 若需要把程序打包成单文件可执行程序, 可按需安装 PyInstaller:
+#
+#   pip install -r requirements-dev.txt
+#
+# 本文件特意保持为空(仅含注释), 以明确说明运行期零依赖。

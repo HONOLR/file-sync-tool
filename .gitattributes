@@ -1,0 +1,24 @@
+# 统一换行符处理, 避免在不同平台协作时产生无意义的全文件差异。
+
+# 默认: 仓库内统一存为 LF, 检出时由 Git 按平台自动转换
+* text=auto eol=lf
+
+# 明确指定文本文件
+*.py   text eol=lf
+*.md   text eol=lf
+*.ini  text eol=lf
+*.txt  text eol=lf
+*.example text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+LICENSE text eol=lf
+
+# 二进制文件不做任何转换
+*.exe  binary
+*.bin  binary
+*.png  binary
+*.jpg  binary
+*.zip  binary
+
+# GitHub 语言统计时忽略打包产物目录
+build/ linguist-vendored

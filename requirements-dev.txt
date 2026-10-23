@@ -1,0 +1,11 @@
+# 仅在需要把程序打包成单文件可执行程序时才用得到。
+# 运行服务端和客户端本身不需要任何第三方依赖。
+#
+# 安装:
+#   pip install -r requirements-dev.txt
+#
+# 打包(分别在 server/ 和 client/ 目录下执行):
+#   pyinstaller --onefile --console sync_server.py
+#   pyinstaller --onefile --console sync_client.py
+
+pyinstaller==6.11.1
