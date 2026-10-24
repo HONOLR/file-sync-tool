@@ -319,6 +319,9 @@ pyinstaller --onefile --console sync_client.py
 产物在各自的 `dist/` 目录下。程序会把 `.exe` 所在目录作为相对路径的
 基准目录，因此把配置文件和 `.exe` 放在一起即可。
 
+打包后的程序会在启动时把控制台代码页切换为 UTF-8，中文提示可以正常
+显示，不需要手动执行 `chcp 65001`。
+
 打包产物请作为 GitHub Releases 的附件发布，不要提交进仓库。
 PyInstaller 的单文件产物常被杀毒软件误报，分发时建议同时提供源码
 运行方式。

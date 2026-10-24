@@ -31,6 +31,41 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+
+# --------------------------------------------------------------------------
+# 控制台编码
+# --------------------------------------------------------------------------
+
+def setup_console_encoding():
+    """
+    把标准输出切换为 UTF-8, 确保中文提示不会显示成乱码。
+
+    必须在任何输出之前调用。打包成可执行文件后尤其重要: 此时
+    标准输出默认使用系统 ANSI 代码页(简体中文 Windows 为 cp936),
+    与源码中的中文字符串编码不一致, 控制台就会出现乱码。
+    """
+    # 将 Windows 控制台的代码页切换为 UTF-8 (65001)
+    if os.name == "nt":
+        try:
+            import ctypes
+
+            ctypes.windll.kernel32.SetConsoleOutputCP(65001)
+            ctypes.windll.kernel32.SetConsoleCP(65001)
+        except Exception:
+            # 在无控制台的环境(如重定向输出)中可能失败, 忽略即可
+            pass
+
+    # 重新配置 Python 自身的标准流编码
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
+setup_console_encoding()
+
+
 # --------------------------------------------------------------------------
 # 常量定义
 # --------------------------------------------------------------------------

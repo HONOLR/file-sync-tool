@@ -8,4 +8,6 @@
 #   pyinstaller --onefile --console sync_server.py
 #   pyinstaller --onefile --console sync_client.py
 
-pyinstaller==6.11.1
+# 版本下限 6.14 起正式支持 Python 3.13+;
+# 使用 Python 3.14 时请安装 6.22 及以上版本。
+pyinstaller>=6.22.3
